@@ -1,20 +1,32 @@
 {
   "name": "@pipeworx/mcp-listen-notes",
-  "version": "0.1.0",
-  "description": "Podcast directory search + best podcasts + recommendations via Listen Notes. Free key required.",
+  "version": "0.1.1",
+  "description": "Listen Notes MCP.",
   "type": "module",
   "main": "src/index.ts",
   "types": "src/index.ts",
+  "bin": {
+    "mcp-listen-notes": "bin/cli.js"
+  },
   "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "listen-notes"],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pipeworx-io/mcp-listen-notes"
+    "url": "git+https://github.com/pipeworx-io/mcp-listen-notes.git"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"
   },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "tsx": "^4.19.0"
+  },
   "devDependencies": {
-    "typescript": "^5.7.0"
+    "typescript": "^5.9.3",
+    "@cloudflare/workers-types": "^4.20260405.1"
+  },
+  "pipeworx": {
+    "sourceHash": "v1-bac94aaed5d722cbedc20bab1600d80d23742217cfd81e82c17ac6fbc00bd171",
+    "sourceCommit": "adb69d997f82a62e8e22b594488c7d04a227db35"
   }
 }
