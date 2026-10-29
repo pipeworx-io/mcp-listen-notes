@@ -1,12 +1,20 @@
 {
   "name": "@pipeworx/mcp-listen-notes",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Listen Notes MCP.",
   "type": "module",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./tools.json": "./tools.json",
+    "./package.json": "./package.json"
+  },
   "bin": {
     "mcp-listen-notes": "bin/cli.js"
+  },
+  "files": ["bin/", "lib/", "tools.json", "server.json"],
+  "engines": {
+    "node": ">=18"
   },
   "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "listen-notes"],
   "license": "MIT",
@@ -14,19 +22,12 @@
     "type": "git",
     "url": "git+https://github.com/pipeworx-io/mcp-listen-notes.git"
   },
-  "scripts": {
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.30.0",
-    "tsx": "^4.19.0"
-  },
-  "devDependencies": {
-    "typescript": "^5.9.3",
-    "@cloudflare/workers-types": "^4.20260405.1"
-  },
+  "mcpName": "io.github.pipeworx-io/listen-notes",
   "pipeworx": {
-    "sourceHash": "v1-6703817d58422983263e85fedda921e7602d209312265214d63ad81e2e2a3043",
-    "sourceCommit": "33741fe6d9ba71856e73fa683c73572d1ddf2e93"
+    "mode": "gateway",
+    "slug": "listen-notes",
+    "gatewaySlug": "listen-notes",
+    "sourceHash": "v1-6c7f3c410474270ed7f0b4a178a704d058fb73aad0be765492238cf58f7214d3",
+    "sourceCommit": "5c89d6abb778d45da5d92002eb251978622bedf9"
   }
 }

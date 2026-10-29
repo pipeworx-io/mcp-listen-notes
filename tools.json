@@ -1,0 +1,130 @@
+[
+  {
+    "name": "search",
+    "description": "Search the Listen Notes podcast index across podcasts, individual episodes, curated lists, and people, with filters for type, language, genre ids, episode length, and date sorting. Returns matching podcast or episode records with title, publisher, description, audio URL, publish date, and the Listen Notes id used by the other tools in this pack. Answers which podcast or episode covers a topic, guest, or show name.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "description": "podcast | episode | curated | person"
+        },
+        "sort_by_date": {
+          "type": "number",
+          "description": "0 (relevance, default) | 1 (date desc)"
+        },
+        "language": {
+          "type": "string"
+        },
+        "len_min": {
+          "type": "number"
+        },
+        "len_max": {
+          "type": "number"
+        },
+        "genre_ids": {
+          "type": "string",
+          "description": "Comma-sep ids."
+        },
+        "offset": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "query"
+      ]
+    }
+  },
+  {
+    "name": "podcast",
+    "description": "Fetch full details for a single podcast by Listen Notes `id`. Returns title, description, publisher, language, total episodes, latest episode date, and image URL.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    }
+  },
+  {
+    "name": "episode",
+    "description": "Fetch full details for a single podcast episode by Listen Notes `id`. Returns title, description, audio URL, duration, publish date, and parent podcast info.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    }
+  },
+  {
+    "name": "genres",
+    "description": "Return the full list of Listen Notes podcast genre categories with genre id and name. Use genre_id values to filter `best_podcasts` or `search` by genre.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "best_podcasts",
+    "description": "Fetch the Listen Notes curated list of top podcasts, optionally filtered by `genre_id`, `region`, or `sort`. Returns title, publisher, image URL, and Listen Notes id per podcast.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "genre_id": {
+          "type": "number"
+        },
+        "region": {
+          "type": "string"
+        },
+        "sort": {
+          "type": "string"
+        },
+        "page": {
+          "type": "number"
+        }
+      }
+    }
+  },
+  {
+    "name": "recommendations_for_podcast",
+    "description": "Fetch podcast recommendations similar to a given podcast by Listen Notes `id`. Returns a list of similar podcasts with title, publisher, description, and image URL.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    }
+  },
+  {
+    "name": "recommendations_for_episode",
+    "description": "Fetch episode recommendations similar to a given episode by Listen Notes `id`. Returns a list of similar episodes with title, audio URL, duration, and parent podcast info.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    }
+  }
+]
